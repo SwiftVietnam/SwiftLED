@@ -4,7 +4,7 @@ import WS281x
 
 class LED {
 
-    private let lamp: WS281x
+    private let strip: WS281x
     private let numberOfLeds = 8
     private(set) var isOn: Bool = false
 
@@ -12,7 +12,8 @@ class LED {
         let pwms = SwiftyGPIO.hardwarePWMs(for: .RaspberryPiPlusZero)!
         let pwm = (pwms[0]?[.P18])!
 
-        self.lamp = WS281x(pwm,
+        self.strip = WS281x(
+            pwm,
             type: .WS2812B,
             numElements: numberOfLeds
         )
@@ -21,24 +22,24 @@ class LED {
     private(set) var color: UInt32 = 0xFFFFFF
 
     func turnOff() {
-        lamp.setLeds([UInt32](repeating: 0x0, count: numberOfLeds))
+        strip.setLeds([UInt32](repeating: 0x0, count: numberOfLeds))
         isOn = false
-        lamp.start()
-        lamp.wait()
+        strip.start()
+        strip.wait()
     }
 
     func turnOn() {
-        lamp.setLeds([UInt32](repeating: color, count: numberOfLeds))
+        strip.setLeds([UInt32](repeating: color, count: numberOfLeds))
         isOn = true
-        lamp.start()
-        lamp.wait()
+        strip.start()
+        strip.wait()
     }
 
     func set(_ newColor: HSV) {
         self.color = newColor.rbgUInt
-        lamp.setLeds([UInt32](repeating: self.color, count: numberOfLeds))
-        lamp.start()
-        lamp.wait()
+        strip.setLeds([UInt32](repeating: self.color, count: numberOfLeds))
+        strip.start()
+        strip.wait()
     }
 
 }

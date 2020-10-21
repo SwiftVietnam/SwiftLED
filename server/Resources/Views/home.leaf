@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SwiftLED</title>
+  </head>
+  <body>
+     <h1>SwiftLED</h1>
+     <ul>
+        <li><a href="led/on">Turn on</a></li>
+        <li><a href="led/off">Turn off</a></li>
+     </ul>
+  </body>
+</html>
