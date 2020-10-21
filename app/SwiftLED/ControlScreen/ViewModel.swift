@@ -20,7 +20,7 @@ class ViewModel {
     var output: (() -> (String))?
 
     func `switch`(to state: State, completion: @escaping (Bool) -> ()) {
-        URLSession.shared.dataTask(with: url.appendingPathComponent("led/\(state.rawValue)")) { (json, response, error) in
+        URLSession.shared.dataTask(with: url.appendingPathComponent("api/led/\(state.rawValue)")) { (json, response, error) in
             if let error = error {
                 DispatchQueue.main.async {
                     NotificationBanner(with: error.localizedDescription, for: .failure).show()
@@ -37,12 +37,12 @@ class ViewModel {
         guard now.timeIntervalSince(date) > 0.2 else {
             return
         }
-        URLSession.shared.dataTask(with: url.appendingPathComponent("color/\(hue)/\(saturation)/\(brightness)")).resume()
+        URLSession.shared.dataTask(with: url.appendingPathComponent("api/color/\(hue)/\(saturation)/\(brightness)")).resume()
         date = now
     }
 
     func isOn(completion: @escaping (Bool) -> ()) {
-        URLSession.shared.dataTask(with: url.appendingPathComponent("led/status")) { (json, response, error) in
+        URLSession.shared.dataTask(with: url.appendingPathComponent("api/led/status")) { (json, response, error) in
             completion(true)
         }.resume()
     }
