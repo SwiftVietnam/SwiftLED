@@ -5,4 +5,6 @@ docker run \
     --volume "$(pwd)/:/src" \
     --workdir "/src/" \
     swift-lambda-builder \
-    package.sh SwiftLED
+    ./package.sh SwiftLED
+
+cp -r .build/lambda/SwiftLED/lambda.zip ./

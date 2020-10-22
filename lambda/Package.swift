@@ -10,7 +10,8 @@ let package = Package(
         .target(
             name: "SwiftLED",
             dependencies: [
-                .product(name: "AWSLambdaRuntime", package: "swift-aws-lambda-runtime")
+                .product(name: "AWSLambdaRuntime", package: "swift-aws-lambda-runtime"),
+                .product(name: "AWSLambdaEvents", package: "swift-aws-lambda-runtime")
             ]
         ),
     ]
