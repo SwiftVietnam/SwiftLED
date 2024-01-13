@@ -1,0 +1,52 @@
+{
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:swiftIO}",
+            "name": "Debug swiftIO",
+            "program": "${workspaceFolder:swiftIO}/.build/debug/swiftIO",
+            "preLaunchTask": "swift: Build Debug swiftIO"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:swiftIO}",
+            "name": "Release swiftIO",
+            "program": "${workspaceFolder:swiftIO}/.build/release/swiftIO",
+            "preLaunchTask": "swift: Build Release swiftIO"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:swiftIO}",
+            "name": "Debug swiftIOLED",
+            "program": "${workspaceFolder:swiftIO}/.build/debug/swiftIOLED",
+            "preLaunchTask": "swift: Build Debug swiftIOLED"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:swiftIO}",
+            "name": "Release swiftIOLED",
+            "program": "${workspaceFolder:swiftIO}/.build/release/swiftIOLED",
+            "preLaunchTask": "swift: Build Release swiftIOLED"
+        }
+    ]
+}
