@@ -9,7 +9,7 @@ let package = Package(
         // Dependencies declare other packages that this package depends on.
         .package(url: "https://github.com/madmachineio/SwiftIO.git", branch: "main"),
         .package(url: "https://github.com/madmachineio/MadBoards.git", branch: "main"),
-        // .package(url: "https://github.com/madmachineio/MadDrivers.git", branch: "main"),
+        .package(url: "https://github.com/madmachineio/MadDrivers.git", branch: "main"),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -20,7 +20,8 @@ let package = Package(
                 "SwiftIO",
                 "MadBoards",
                 // Use specific library name rather than "MadDrivers" would speed up the build procedure.
-                // .product(name: "MadDrivers", package: "MadDrivers")
+                .product(name: "LIS3DH", package: "MadDrivers"),
+                .product(name: "ST7789", package: "MadDrivers"),
             ]),
     ]
 )

@@ -11,8 +11,8 @@ let package = Package(
     ],
     targets: [
         .target(name: "App", dependencies: [
-            "Vapor",
-            "Leaf",
+            .product(name: "Vapor", package: "vapor"),
+            .product(name: "Leaf", package: "leaf"),
             "SwiftyGPIO",
             "WS281x"            
         ]),

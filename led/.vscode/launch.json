@@ -1,0 +1,28 @@
+{
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:led}",
+            "name": "Debug SwiftLED",
+            "program": "${workspaceFolder:led}/.build/debug/SwiftLED",
+            "preLaunchTask": "swift: Build Debug SwiftLED"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:led}",
+            "name": "Release SwiftLED",
+            "program": "${workspaceFolder:led}/.build/release/SwiftLED",
+            "preLaunchTask": "swift: Build Release SwiftLED"
+        }
+    ]
+}

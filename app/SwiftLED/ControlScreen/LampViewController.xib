@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,20 +20,71 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fKF-Q1-suU">
-                    <rect key="frame" x="182.5" y="781" width="51" height="31"/>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" title="Toggle LED" translatesAutoresizingMaskIntoConstraints="NO" id="fKF-Q1-suU">
+                    <rect key="frame" x="182.5" y="651" width="51" height="31"/>
                     <connections>
                         <action selector="changedSwitch:" destination="-1" eventType="valueChanged" id="j2A-db-oD6"/>
                     </connections>
                 </switch>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Utq-xy-mbK">
+                    <rect key="frame" x="16" y="746" width="382" height="100"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QBM-zm-ENY">
+                            <rect key="frame" x="0.0" y="0.0" width="116.5" height="100"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="filled" title="Red">
+                                <backgroundConfiguration key="background">
+                                    <color key="backgroundColor" systemColor="systemRedColor"/>
+                                </backgroundConfiguration>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="didTapRedLCD:" destination="-1" eventType="touchUpInside" id="4LK-Vn-WMQ"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A7e-vg-tFm">
+                            <rect key="frame" x="132.5" y="0.0" width="117" height="100"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="filled" title="Green">
+                                <backgroundConfiguration key="background">
+                                    <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                </backgroundConfiguration>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="didTapGreenLCD:" destination="-1" eventType="touchUpInside" id="vjq-eE-SLZ"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VH8-gS-dfa">
+                            <rect key="frame" x="265.5" y="0.0" width="116.5" height="100"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="filled" title="Blue"/>
+                            <connections>
+                                <action selector="didTapBlueLCD:" destination="-1" eventType="touchUpInside" id="C6n-V9-hMt"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="V1Z-S6-vAw"/>
+                    </constraints>
+                </stackView>
             </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="fKF-Q1-suU" secondAttribute="bottom" constant="50" id="Is8-S6-WoO"/>
+                <constraint firstItem="Utq-xy-mbK" firstAttribute="top" secondItem="fKF-Q1-suU" secondAttribute="bottom" constant="64" id="2TW-2C-Nh5"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Utq-xy-mbK" secondAttribute="bottom" constant="16" id="BwS-rU-L7z"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Utq-xy-mbK" secondAttribute="trailing" constant="16" id="USc-Pd-iyT"/>
                 <constraint firstItem="fKF-Q1-suU" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="gGz-6t-Kuu"/>
+                <constraint firstItem="Utq-xy-mbK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="wcC-jX-H8n"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="132" y="137"/>
+            <point key="canvasLocation" x="131.8840579710145" y="136.60714285714286"/>
         </view>
     </objects>
+    <resources>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

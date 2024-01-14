@@ -1,10 +1,14 @@
 import Routing
 import Vapor
 
+// LED
 let ledStrip = LED()
 var currentHue: Float = 360
 var currentSaturation: Float = 0
 var currentBrightness: Float = 1
+
+// SwiftIOBoard
+let swiftIOBoard = SwiftIOBoard()
 
 /// Register your application's routes here.
 ///
@@ -43,5 +47,19 @@ public func routes(_ router: Router) throws {
         return Response(http: HTTPResponse(status: .ok), using: req)
     }
 
+    router.get("api/swiftio/lcd/red") { req -> Response in
+        swiftIOBoard.displayRed()
+        return Response(http: HTTPResponse(status: .ok), using: req)
+    }
+
+    router.get("api/swiftio/lcd/blue") { req -> Response in
+        swiftIOBoard.displayBlue()
+        return Response(http: HTTPResponse(status: .ok), using: req)
+    }
+
+    router.get("api/swiftio/lcd/green") { req -> Response in
+        swiftIOBoard.displayGreen()
+        return Response(http: HTTPResponse(status: .ok), using: req)
+    }
 }
 

@@ -10,6 +10,24 @@
       }
     },
     {
+      "identity" : "maddrivers",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/madmachineio/MadDrivers.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "dcf5e351c609b2cbc47f3e95d5724828b77b660f"
+      }
+    },
+    {
+      "identity" : "swift-numerics",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-numerics",
+      "state" : {
+        "revision" : "0a5bc04095a675662cf24757cc0640aa2204253b",
+        "version" : "1.0.2"
+      }
+    },
+    {
       "identity" : "swiftio",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/madmachineio/SwiftIO.git",

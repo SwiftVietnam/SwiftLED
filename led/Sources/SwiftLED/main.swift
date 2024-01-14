@@ -1,6 +1,5 @@
 import SwiftyGPIO
 import WS281x
-import Glibc
 import Foundation
 
 let pwms = SwiftyGPIO.hardwarePWMs(for: .RaspberryPiPlusZero)!
@@ -20,5 +19,9 @@ var color: UInt32 = 0x0
 w.setLeds([UInt32](repeating: color, count: numberOfLeds))
 
 w.start()
+
+print("started")
+
 w.wait()
 
+print("done!")

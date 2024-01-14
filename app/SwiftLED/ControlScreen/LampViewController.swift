@@ -32,7 +32,7 @@ class LampViewController: UIViewController {
         colorSlider.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             colorSlider.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            colorSlider.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            colorSlider.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
             colorSlider.heightAnchor.constraint(equalToConstant: 400),
             colorSlider.widthAnchor.constraint(equalToConstant: 60)])
 
@@ -50,7 +50,7 @@ class LampViewController: UIViewController {
     }
 
     @IBAction func changedSwitch(_ sender: UISwitch) {
-        let state: State = sender.isOn ? .on : .off
+        let state: LEDState = sender.isOn ? .on : .off
         viewModel.switch(to: state) { [weak self] success in
             DispatchQueue.main.async {
                 if success {
@@ -60,6 +60,24 @@ class LampViewController: UIViewController {
                     sender.isOn = !sender.isOn
                 }
             }
+        }
+    }
+
+    @IBAction func didTapRedLCD(_ sender: Any) {
+        viewModel.changeLCD(.red) { success in
+
+        }
+    }
+
+    @IBAction func didTapGreenLCD(_ sender: Any) {
+        viewModel.changeLCD(.green) { success in
+
+        }
+    }
+
+    @IBAction func didTapBlueLCD(_ sender: Any) {
+        viewModel.changeLCD(.blue) { success in
+
         }
     }
 }
